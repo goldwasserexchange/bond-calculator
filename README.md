@@ -1,4 +1,7 @@
 # Bond calculator
+
+[![npm version](https://badge.fury.io/js/bond-calculator.svg)](https://badge.fury.io/js/bond-calculator)
+
 Yield and price calculations for bonds.
 
 Gives the same results as Excel [YIELD](https://support.office.com/en-US/article/YIELD-function-F5F5CA43-C4BD-434F-8BD2-ED3C9727A4FE) and [PRICE](https://support.office.com/en-us/article/PRICE-function-3ea9deac-8dfa-436f-a7c8-17ea02c21b0a) functions.
