@@ -1,6 +1,6 @@
 {
   "name": "bond-calculator",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Yield and price calculations for bonds",
   "main": "dist/index.js",
   "scripts": {
