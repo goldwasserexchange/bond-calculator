@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint . --ignore-path .gitignore",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "nyc ava",
     "build": "babel src --out-dir dist"
   },
   "repository": {
@@ -14,6 +14,10 @@
   },
   "author": "Jonathan Goldwasser <jonathan@goldwasserexchange.be>",
   "license": "MIT",
+  "ava": {
+    "require": "babel-register",
+    "babel": "inherit"
+  },
   "babel": {
     "presets": [
       "es2015"
@@ -43,15 +47,18 @@
     "ramda": "0.22.1"
   },
   "devDependencies": {
+    "ava": "0.17.0",
     "babel-cli": "6.18.0",
     "babel-plugin-date-fns": "0.1.0",
     "babel-plugin-ramda": "1.1.6",
     "babel-plugin-transform-exponentiation-operator": "6.8.0",
     "babel-preset-es2015": "6.18.0",
+    "coveralls": "2.11.15",
     "eslint": "3.12.2",
     "eslint-config-airbnb": "13.0.0",
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "2.2.3",
-    "eslint-plugin-react": "6.8.0"
+    "eslint-plugin-react": "6.8.0",
+    "nyc": "10.0.0"
   }
 }
