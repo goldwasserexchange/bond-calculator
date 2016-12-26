@@ -1,0 +1,55 @@
+{
+  "name": "bond-calculator",
+  "version": "0.1.1",
+  "description": "Yield and price calculations for bonds",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "eslint . --ignore-path .gitignore",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src --out-dir dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/goldwasserexchange/bond-calculator"
+  },
+  "author": "Jonathan Goldwasser <jonathan@goldwasserexchange.be>",
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      "ramda",
+      "date-fns"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "airbnb",
+    "rules": {
+      "strict": 0,
+      "no-mixed-operators": 0,
+      "linebreak-style": 0,
+      "no-underscore-dangle": 0,
+      "comma-dangle": [
+        2,
+        "always-multiline"
+      ]
+    }
+  },
+  "dependencies": {
+    "date-fns": "1.21.1",
+    "joi": "10.1.0",
+    "ramda": "0.22.1"
+  },
+  "devDependencies": {
+    "babel-cli": "6.18.0",
+    "babel-plugin-date-fns": "0.1.0",
+    "babel-plugin-ramda": "1.1.6",
+    "babel-preset-es2015": "6.18.0",
+    "eslint": "3.12.2",
+    "eslint-config-airbnb": "13.0.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jsx-a11y": "2.2.3",
+    "eslint-plugin-react": "6.8.0"
+  }
+}
