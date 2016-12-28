@@ -40,8 +40,6 @@ export const accrued = (date1, date2, convention) => {
       return differenceInDays(date2, date1);
     case '30U/360':
     default:
-      if (d1 === 31) d1 = 30;
-      if (d2 === 31) d2 = 30;
       if (isEndOfFebruary(date1)) d1 = 30;
       if (isEndOfFebruary(date1) && isEndOfFebruary(date2)) d2 = 30;
       return countDays30360(d1, m1, y1, d2, m2, y2);
