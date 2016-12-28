@@ -40,7 +40,7 @@
   "dependencies": {
     "date-fns": "1.21.1",
     "joi": "10.1.0",
-    "ramda": "0.22.1"
+    "ramda": "0.23.0"
   },
   "devDependencies": {
     "babel-cli": "6.18.0",
