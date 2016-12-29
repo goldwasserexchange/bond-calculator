@@ -94,8 +94,12 @@ test('previous on a coupon date', (t) => {
   t.deepEqual(previous(new Date(2000, 4, 31), new Date(2020, 4, 31), 4), new Date(2000, 4, 31));
 });
 
-test('next', (t) => {
+test('next not on a coupon date', (t) => {
   t.deepEqual(next(new Date(2000, 2, 10), new Date(2020, 4, 31), 4), new Date(2000, 4, 31));
+});
+
+test('next on a coupon date', (t) => {
+  t.deepEqual(next(new Date(2000, 4, 31), new Date(2020, 4, 31), 4), new Date(2000, 7, 31));
 });
 
 test('num more than 1', (t) => {
