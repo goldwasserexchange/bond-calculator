@@ -1,6 +1,9 @@
 # Source directory
 src
 
+# Test directory
+test
+
 # Logs
 logs
 *.log
