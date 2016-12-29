@@ -34,7 +34,7 @@ const bond = bondCalculator({
 });
 
 // Calculate yield for a given price
-const yld = bond.yield(98); // 2.998817753210426%
+const yld = bond.yield(98); // 2.98817753210426%
 
 // Calculate price for a given yield
 const price = bond.price(0.025); // 100.69785390232649
