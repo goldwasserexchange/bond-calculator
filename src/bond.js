@@ -32,11 +32,11 @@ export const calcPrice = (settlement, maturity, rate, yld, redemption, frequency
 
 const dPriceDYld = (rate, yld, redemption, frequency, DSC, E, N) => R.reduce(
   (acc, k) =>
-  acc - (100 * rate / frequency) ** 2 *
-        (k - 1 + DSC / E) *
-        (1 + yld / frequency) ** (-(k + DSC / E)),
-        -redemption / frequency * (N - 1 + DSC / E) * (1 + yld / frequency) ** (-(N + DSC / E)),
-  R.range(1, N + 1)
+    acc - (100 * rate / frequency) ** 2 *
+          (k - 1 + DSC / E) *
+          (1 + yld / frequency) ** (-(k + DSC / E)),
+    -redemption / frequency * (N - 1 + DSC / E) * (1 + yld / frequency) ** (-(N + DSC / E)),
+    R.range(1, N + 1)
 );
 
 export const calcYield = (settlement, maturity, rate, pr, redemption, frequency, convention) => {
