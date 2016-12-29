@@ -1,5 +1,7 @@
 import R from 'ramda';
 
+import { differenceInDays } from 'date-fns';
+
 import { days, accrued, previous as previousCoupon, next as nextCoupon, num } from './coupon';
 
 import newton from './newton';
@@ -15,11 +17,10 @@ export const calcPrice = (settlement, maturity, rate, yld, redemption, frequency
   const next = nextCoupon(settlement, maturity, frequency);
   const E = days(previous, next, frequency, convention);
   const A = accrued(previous, settlement, convention);
-  let DSC = E - A;
+  const DSC = E - A;
   const N = num(settlement, maturity, frequency);
 
   if (N === 1) {
-    DSC = accrued(settlement, maturity, convention);
     const T1 = 100 * rate / frequency + redemption;
     const T2 = yld / frequency * DSC / E + 1;
     const T3 = 100 * rate / frequency * A / E;
@@ -42,12 +43,13 @@ export const calcYield = (settlement, maturity, rate, pr, redemption, frequency,
   const previous = previousCoupon(settlement, maturity, frequency);
   const next = nextCoupon(settlement, maturity, frequency);
   const A = accrued(previous, settlement, convention);
-  const E = days(previous, next, frequency, convention);
+  let E = days(previous, next, frequency, convention);
   let DSC = E - A;
   const N = num(settlement, maturity, frequency);
 
   if (N === 1) {
     DSC = accrued(settlement, maturity, convention);
+    if (R.contains('ACTUAL', convention)) E = differenceInDays(maturity, previous);
     return (redemption / 100 + rate / frequency - pr / 100 - A / E * rate / frequency) /
            (pr / 100 + A / E * rate / frequency) * frequency * E / DSC;
   }
