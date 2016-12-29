@@ -1,11 +1,12 @@
 import R from 'ramda';
 
-import { getYear, getMonth, getDate, differenceInDays, differenceInMonths, isBefore, isAfter } from 'date-fns';
+import { getYear, getMonth, getDate, differenceInDays, differenceInMonths, isBefore, isAfter, isEqual } from 'date-fns';
 
 import { countDays30360, startOfEndOfMonth, isEndOfMonth, isEndOfFebruary, addPeriods, changeYear } from './utils';
 
 const differenceInMonthsC = R.curry(differenceInMonths);
-const isBeforeC = R.curry(isBefore);
+const isBeforeOrEqual = R.curry((dateLeft, dateRight) =>
+  R.either(isBefore, isEqual)(dateLeft, dateRight));
 const isAfterC = R.curry(isAfter);
 
 export const days = (previous, next, frequency, convention) => {
@@ -40,8 +41,6 @@ export const accrued = (date1, date2, convention) => {
       return differenceInDays(date2, date1);
     case '30U/360':
     default:
-      if (d1 === 31) d1 = 30;
-      if (d2 === 31) d2 = 30;
       if (isEndOfFebruary(date1)) d1 = 30;
       if (isEndOfFebruary(date1) && isEndOfFebruary(date2)) d2 = 30;
       return countDays30360(d1, m1, y1, d2, m2, y2);
@@ -54,11 +53,11 @@ export const dates = (settlement, maturity, frequency) =>
       R.when(R.always(isEndOfMonth(maturity)), startOfEndOfMonth),
       addPeriods(changeYear(maturity, settlement), frequency)
     ),
-    R.range(-frequency + 1, frequency + 1)
+    R.range(-2, 3)
   );
 
 export const previous = (settlement, maturity, frequency) => R.compose(
-  R.findLast(isBeforeC(R.__, settlement)),
+  R.findLast(isBeforeOrEqual(R.__, settlement)),
   dates
 )(settlement, maturity, frequency);
 

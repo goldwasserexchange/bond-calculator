@@ -17,6 +17,8 @@ const schema = Joi.object().keys({
 });
 
 module.exports = (bond) => {
+  if (!bond) throw new Error('A bond object is required');
+
   const validation = Joi.validate(bond, schema);
 
   if (validation.error) throw validation.error;
