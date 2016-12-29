@@ -86,8 +86,12 @@ test('dates maturity end of month', (t) => {
   ]);
 });
 
-test('previous', (t) => {
+test('previous not on a coupon date', (t) => {
   t.deepEqual(previous(new Date(2000, 2, 10), new Date(2020, 4, 31), 4), new Date(2000, 1, 29));
+});
+
+test('previous on a coupon date', (t) => {
+  t.deepEqual(previous(new Date(2000, 4, 31), new Date(2020, 4, 31), 4), new Date(2000, 4, 31));
 });
 
 test('next', (t) => {

@@ -1,11 +1,12 @@
 import R from 'ramda';
 
-import { getYear, getMonth, getDate, differenceInDays, differenceInMonths, isBefore, isAfter } from 'date-fns';
+import { getYear, getMonth, getDate, differenceInDays, differenceInMonths, isBefore, isAfter, isEqual } from 'date-fns';
 
 import { countDays30360, startOfEndOfMonth, isEndOfMonth, isEndOfFebruary, addPeriods, changeYear } from './utils';
 
 const differenceInMonthsC = R.curry(differenceInMonths);
-const isBeforeC = R.curry(isBefore);
+const isBeforeOrEqual = R.curry((dateLeft, dateRight) =>
+  R.either(isBefore, isEqual)(dateLeft, dateRight));
 const isAfterC = R.curry(isAfter);
 
 export const days = (previous, next, frequency, convention) => {
@@ -56,7 +57,7 @@ export const dates = (settlement, maturity, frequency) =>
   );
 
 export const previous = (settlement, maturity, frequency) => R.compose(
-  R.findLast(isBeforeC(R.__, settlement)),
+  R.findLast(isBeforeOrEqual(R.__, settlement)),
   dates
 )(settlement, maturity, frequency);
 
