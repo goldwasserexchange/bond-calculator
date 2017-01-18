@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "date-fns": "1.26.0",
-    "joi": "10.1.0",
+    "joi": "10.2.0",
     "ramda": "0.23.0"
   },
   "devDependencies": {
@@ -61,6 +61,6 @@
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "2.2.3",
     "eslint-plugin-react": "6.9.0",
-    "nyc": "10.0.0"
+    "nyc": "10.1.0"
   }
 }
