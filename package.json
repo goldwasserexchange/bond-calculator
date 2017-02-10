@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "date-fns": "1.27.2",
-    "joi": "10.2.1",
+    "joi": "10.2.2",
     "ramda": "0.23.0"
   },
   "devDependencies": {
