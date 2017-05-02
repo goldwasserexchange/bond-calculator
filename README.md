@@ -3,6 +3,7 @@
 [![npm version](https://badge.fury.io/js/bond-calculator.svg)](https://badge.fury.io/js/bond-calculator)
 [![Build Status](https://travis-ci.org/goldwasserexchange/bond-calculator.svg?branch=master)](https://travis-ci.org/goldwasserexchange/bond-calculator)
 [![Coverage Status](https://coveralls.io/repos/github/goldwasserexchange/bond-calculator/badge.svg?branch=master)](https://coveralls.io/github/goldwasserexchange/bond-calculator?branch=master)
+[![Greenkeeper badge](https://badges.greenkeeper.io/goldwasserexchange/bond-calculator.svg)](https://greenkeeper.io/)
 
 Yield and price calculations for bonds.
 
