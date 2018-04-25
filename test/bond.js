@@ -9,31 +9,27 @@ const title = bond => `${bond.settlement} ${bond.maturity} ${bond.rate} ${bond.r
 const approxEqual = (a, b) => Math.abs(a - b) < 1e-10;
 
 const testCalcPrice = (bond, price, convention) => test(`calcPrice ${title(bond)} ${convention}`, (t) => {
-  t.true(
-    approxEqual(
-      calcPrice(
-        bond.settlement,
-        bond.maturity,
-        bond.rate,
-        bond.yield,
-        bond.redemption,
-        bond.frequency,
-        convention
-      ), price));
+  t.true(approxEqual(calcPrice(
+    bond.settlement,
+    bond.maturity,
+    bond.rate,
+    bond.yield,
+    bond.redemption,
+    bond.frequency,
+    convention
+  ), price));
 });
 
 const testCalcYield = (bond, yld, convention) => test(`calcYield ${title(bond)} ${convention}`, (t) => {
-  t.true(
-    approxEqual(
-      calcYield(
-        bond.settlement,
-        bond.maturity,
-        bond.rate,
-        bond.price,
-        bond.redemption,
-        bond.frequency,
-        convention
-      ), yld));
+  t.true(approxEqual(calcYield(
+    bond.settlement,
+    bond.maturity,
+    bond.rate,
+    bond.price,
+    bond.redemption,
+    bond.frequency,
+    convention
+  ), yld));
 });
 
 const mapTestCalc = (testCalc, prop, bond) => R.compose(
@@ -43,8 +39,7 @@ const mapTestCalc = (testCalc, prop, bond) => R.compose(
 
 const testBonds = R.map(bond =>
   mapTestCalc(testCalcPrice, 'prices', bond) &&
-  mapTestCalc(testCalcYield, 'yields', bond)
-);
+  mapTestCalc(testCalcYield, 'yields', bond));
 
 const bonds = [
   {

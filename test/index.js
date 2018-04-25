@@ -10,8 +10,7 @@ const testMissing = R.curry((testBond, prop) =>
   test(`throws if ${prop} is missing`, (t) => {
     const error = t.throws(() => R.compose(bondCalculator, R.dissoc(prop))(testBond));
     t.true(errorContains(error, prop));
-  })
-);
+  }));
 
 const testAssoc = (testBond, prop, val) =>
   test(`throws if ${prop} is ${val}`, (t) => {
