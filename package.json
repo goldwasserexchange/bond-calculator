@@ -1,6 +1,6 @@
 {
   "name": "bond-calculator",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Yield and price calculations for bonds",
   "main": "dist/index.js",
   "scripts": {
@@ -44,18 +44,18 @@
   },
   "dependencies": {
     "date-fns": "^1.28.2",
-    "joi": "^10.4.1",
-    "ramda": "^0.24.1"
+    "joi": "^13.2.0",
+    "ramda": "^0.25.0"
   },
   "devDependencies": {
-    "ava": "^0.19.0",
+    "ava": "^0.20.0",
     "babel-cli": "^6.24.0",
     "babel-plugin-date-fns": "^0.1.0",
     "babel-plugin-ramda": "^1.2.0",
     "babel-plugin-transform-exponentiation-operator": "^6.22.0",
     "babel-preset-es2015": "^6.24.0",
     "babel-register": "^6.24.0",
-    "coveralls": "^2.13.0",
+    "coveralls": "^3.0.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^15.0.0",
     "eslint-plugin-import": "^2.2.0",
