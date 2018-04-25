@@ -48,7 +48,7 @@
     "ramda": "^0.25.0"
   },
   "devDependencies": {
-    "ava": "^0.20.0",
+    "ava": "^0.25.0",
     "babel-cli": "^6.24.0",
     "babel-plugin-date-fns": "^0.1.0",
     "babel-plugin-ramda": "^1.2.0",
