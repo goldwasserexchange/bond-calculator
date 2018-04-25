@@ -2,7 +2,7 @@ import R from 'ramda';
 
 const dTol = R.defaultTo(1e-13);
 const dEps = R.defaultTo(1e-14);
-const dMaxIter = R.defaultTo(100);
+const dMaxIter = R.defaultTo(200);
 
 const _newton = (f, fp, x0, tol, eps, maxIter, iter) => {
   if (iter > maxIter) throw new Error(`Newton's method failed to converge after ${maxIter} iterations`);
