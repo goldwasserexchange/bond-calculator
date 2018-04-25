@@ -26,19 +26,23 @@ module.exports = (bond) => {
   const validBond = validation.value;
 
   return {
-    price: yld => calcPrice(validBond.settlement,
-                            validBond.maturity,
-                            validBond.rate,
-                            yld,
-                            validBond.redemption,
-                            validBond.frequency,
-                            validBond.convention),
-    yield: price => calcYield(validBond.settlement,
-                              validBond.maturity,
-                              validBond.rate,
-                              price,
-                              validBond.redemption,
-                              validBond.frequency,
-                              validBond.convention),
+    price: yld => calcPrice(
+      validBond.settlement,
+      validBond.maturity,
+      validBond.rate,
+      yld,
+      validBond.redemption,
+      validBond.frequency,
+      validBond.convention
+    ),
+    yield: price => calcYield(
+      validBond.settlement,
+      validBond.maturity,
+      validBond.rate,
+      price,
+      validBond.redemption,
+      validBond.frequency,
+      validBond.convention
+    ),
   };
 };
