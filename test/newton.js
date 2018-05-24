@@ -9,11 +9,10 @@ test('throws for too small yp', (t) => {
   t.true(error.message.indexOf('eps') !== -1);
 });
 
-test('throws after maxIter', (t) => {
+test('returns x0 after maxIter', (t) => {
   const f = x => x + 1;
   const fp = () => -2;
-  const error = t.throws(() => newton(f, fp, 0));
-  t.true(error.message.indexOf('iterations') !== -1);
+  t.is(newton(f, fp, 0), 609841766302823000);
 });
 
 test('finds the positive root of x^2 + x - 2', (t) => {
