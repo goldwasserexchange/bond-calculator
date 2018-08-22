@@ -7,7 +7,8 @@
     "lint": "eslint . --ignore-path .gitignore",
     "test": "nyc ava",
     "report": "npm run test && nyc report --reporter=html",
-    "build": "babel src --out-dir dist"
+    "build": "babel src --out-dir dist",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
