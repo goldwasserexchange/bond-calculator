@@ -37,9 +37,7 @@ const mapTestCalc = (testCalc, prop, bond) => R.compose(
   R.prop(prop),
 )(bond);
 
-const testBonds = R.map(bond =>
-  mapTestCalc(testCalcPrice, 'prices', bond) &&
-  mapTestCalc(testCalcYield, 'yields', bond));
+const testBonds = R.map(bond => mapTestCalc(testCalcPrice, 'prices', bond) && mapTestCalc(testCalcYield, 'yields', bond));
 
 const bonds = [
   {

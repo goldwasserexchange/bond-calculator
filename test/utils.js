@@ -1,6 +1,15 @@
 import test from 'ava';
 
-import { countDays30360, startOfEndOfMonth, isEndOfMonth, isFebruary, isEndOfFebruary, endOfFebruary, addPeriods, changeYear } from '../src/utils';
+import {
+  countDays30360,
+  startOfEndOfMonth,
+  isEndOfMonth,
+  isFebruary,
+  isEndOfFebruary,
+  endOfFebruary,
+  addPeriods,
+  changeYear,
+} from '../src/utils';
 
 test('countDays30360', (t) => {
   const d1 = 31;
@@ -56,4 +65,3 @@ test('changeYear end of february', (t) => {
   const date2 = new Date(2011, 4, 18);
   t.deepEqual(changeYear(date1, date2), new Date(2011, 1, 28));
 });
-

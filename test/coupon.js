@@ -1,6 +1,8 @@
 import test from 'ava';
 
-import { days, accrued, dates, previous, next, num } from '../src/coupon';
+import {
+  days, accrued, dates, previous, next, num,
+} from '../src/coupon';
 
 test('days ACTUAL/365', (t) => {
   t.is(days(new Date(2000, 0, 15), new Date(2000, 3, 15), 4, 'ACTUAL/365'), 365 / 4);
