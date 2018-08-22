@@ -7,6 +7,7 @@ node_js:
 before_install:
   - npm install -g npm@6
   - npm install -g greenkeeper-lockfile@1
+install: npm install
 before_script:
   - npm run lint
   - greenkeeper-lockfile-update
@@ -14,15 +15,3 @@ after_script:
   - greenkeeper-lockfile-upload
 after_success:
   - "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
-before_deploy:
-  - npm run build
-deploy:
-  provider: npm
-  skip_cleanup: true
-  email: jonathan@goldwasserexchange.be
-  api_key:
-    secure: WjVTP5go6aZ4nlimf3hY5AChq4iu0Oz/6C4KScD/qTDwWILlUFokBSfyPCfisNOn+2wcb+k8Eh028XhmYLTfVOo/mW1OuQpNAkBmTrRNZKgN6MF5CnDiDY+7d2reDOq8+nETkjwgcKbYlklNT06dLWg0cydhMk1tY1NpzOh1kWeOvcEoAdpc7EZOc2k+AnxVOIJz11A2yLuEZg+TSbm1q2qV34iVKYdRjJ+oIJ395SSAwG7QFq5Lkxp/msOPajEhbrbFy37miHNvl7am3HYEHIShEFCI6z9xQSF8DrJZBkGfvbpgAxslbgSXBEYmFuJ5pW1GxM2fcC6NwBIC4qZeYJuVo+E+c9V55zDf3UE1P2eElOD8zK+bT9oOZN/xVA4LmJCT5Effkaa/CFhN7LBGzhyWcSZkCnoNgCQNCK3SP1fkv4k0GQk/dNgGNYYKiBG7ROP8JTNVkJTDFwYiZwqjl9ce+JQUCNWiyDyNOxWB1j/YtreoYDmNrLOibKeg8KaIZfH5SAosKL+IScf82JvVW5ckg03tpk/r/pS0ULqIKyjZ47L49k13aqC/xkEUzEljLDPhbGlDjc5S0vOlRT56duKIE15QaGrhKGhsNG9q2pD6Zw41wNgaYHYTAPx9MosznupWlWwKtbHDtrCOBCpJ+87CoGJNLXU/5ZOLBJSLQ4E=
-  on:
-    tags: true
-    repo: goldwasserexchange/bond-calculator
-    node: '8'
