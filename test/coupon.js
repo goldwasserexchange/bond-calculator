@@ -68,21 +68,25 @@ test('accrued UNKNOWN date1 and date2 end of february', (t) => {
 
 test('dates maturity not end of month', (t) => {
   t.deepEqual(dates(new Date(2000, 2, 10), new Date(2020, 4, 20), 1), [
+    new Date(1997, 4, 20),
     new Date(1998, 4, 20),
     new Date(1999, 4, 20),
     new Date(2000, 4, 20),
     new Date(2001, 4, 20),
     new Date(2002, 4, 20),
+    new Date(2003, 4, 20),
   ]);
 });
 
 test('dates maturity end of month', (t) => {
   t.deepEqual(dates(new Date(2000, 2, 10), new Date(2020, 4, 31), 4), [
+    new Date(1999, 7, 31),
     new Date(1999, 10, 30),
     new Date(2000, 1, 29),
     new Date(2000, 4, 31),
     new Date(2000, 7, 31),
     new Date(2000, 10, 30),
+    new Date(2001, 1, 28),
   ]);
 });
 
