@@ -1,12 +1,15 @@
 import R from 'ramda';
 
-import { getYear, getMonth, getDate, differenceInDays, differenceInMonths, isBefore, isAfter, isEqual } from 'date-fns';
+import {
+  getYear, getMonth, getDate, differenceInDays, differenceInMonths, isBefore, isAfter, isEqual,
+} from 'date-fns';
 
-import { countDays30360, startOfEndOfMonth, isEndOfMonth, isEndOfFebruary, addPeriods, changeYear } from './utils';
+import {
+  countDays30360, startOfEndOfMonth, isEndOfMonth, isEndOfFebruary, addPeriods, changeYear,
+} from './utils';
 
 const differenceInMonthsC = R.curry(differenceInMonths);
-const isBeforeOrEqual = R.curry((dateLeft, dateRight) =>
-  R.either(isBefore, isEqual)(dateLeft, dateRight));
+const isBeforeOrEqual = R.curry((dateLeft, dateRight) => R.either(isBefore, isEqual)(dateLeft, dateRight)); // eslint-disable-line max-len
 const isAfterC = R.curry(isAfter);
 
 export const days = (previous, next, frequency, convention) => {
@@ -47,14 +50,13 @@ export const accrued = (date1, date2, convention) => {
   }
 };
 
-export const dates = (settlement, maturity, frequency) =>
-  R.map(
-    R.compose(
-      R.when(R.always(isEndOfMonth(maturity)), startOfEndOfMonth),
-      addPeriods(changeYear(maturity, settlement), frequency)
-    ),
-    R.range(-3, 4)
-  );
+export const dates = (settlement, maturity, frequency) => R.map(
+  R.compose(
+    R.when(R.always(isEndOfMonth(maturity)), startOfEndOfMonth),
+    addPeriods(changeYear(maturity, settlement), frequency)
+  ),
+  R.range(-3, 4)
+);
 
 export const previous = (settlement, maturity, frequency) => R.compose(
   R.findLast(isBeforeOrEqual(R.__, settlement)),

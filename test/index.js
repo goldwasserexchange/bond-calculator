@@ -6,17 +6,15 @@ import bondCalculator from '../src/index';
 
 const errorContains = (error, msg) => error.message.indexOf(msg) !== -1;
 
-const testMissing = R.curry((testBond, prop) =>
-  test(`throws if ${prop} is missing`, (t) => {
-    const error = t.throws(() => R.compose(bondCalculator, R.dissoc(prop))(testBond));
-    t.true(errorContains(error, prop));
-  }));
+const testMissing = R.curry((testBond, prop) => test(`throws if ${prop} is missing`, (t) => {
+  const error = t.throws(() => R.compose(bondCalculator, R.dissoc(prop))(testBond));
+  t.true(errorContains(error, prop));
+}));
 
-const testAssoc = (testBond, prop, val) =>
-  test(`throws if ${prop} is ${val}`, (t) => {
-    const error = t.throws(() => R.compose(bondCalculator, R.assoc(prop, val))(testBond));
-    t.true(errorContains(error, prop));
-  });
+const testAssoc = (testBond, prop, val) => test(`throws if ${prop} is ${val}`, (t) => {
+  const error = t.throws(() => R.compose(bondCalculator, R.assoc(prop, val))(testBond));
+  t.true(errorContains(error, prop));
+});
 
 const testMissingsKeys = testBond => R.compose(R.map(testMissing(testBond)), R.keys)(testBond);
 
