@@ -46,7 +46,7 @@
   "dependencies": {
     "date-fns": "^1.29.0",
     "joi": "^13.6.0",
-    "ramda": "^0.25.0"
+    "ramda": "^0.26.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",
